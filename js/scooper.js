@@ -24,8 +24,7 @@ function format(num, digits) {
   else {
     out += '.';
   }
-  out += '0'.repeat(digits);
-  return out;
+  return out + '0'.repeat(digits);
 }
 
 costDiv.innerText = format(goupCost, 2);
@@ -45,14 +44,11 @@ function update(delta) {
   const ms = delta / 1000;
   const toGoUp = goup * ms;
   number += toGoUp;
-  // console.log('UPDATE', delta, ms);
 }
 
 function draw(interpolationPercentage) {
   numberDiv.innerText = format(number, 2);
   goupDiv.innerText = goup;
-  // timeDiv.innerText = `${format((new Date() - startTime)/1000, 2)} sec`;
-  // console.log('DRAW', interpolationPercentage);
 }
 
 function end(fps, panic) {
